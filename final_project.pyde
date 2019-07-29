@@ -5,6 +5,6 @@ def setup():
     img = loadImage("flappy_bird.png")
     image(img, 0, 0, 700, 800)
     
-    
+    #evan was here
 def draw():
     
