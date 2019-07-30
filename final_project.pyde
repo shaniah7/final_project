@@ -56,7 +56,7 @@ def bird():
     ellipse(bird_x, bird_y,40,40)
     bird_y = bird_y + gravity
     if keyPressed and key == 'r' or key == 'R':
-        bird_y = bird_y + 5
+        bird_y = bird_y - gravity*5
     if bird_y >= 700:
         bird_y = 700
         bird_death = True
