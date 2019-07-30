@@ -53,7 +53,7 @@ def bird():
     global birdx_spd
     global birdy_spd
     global gravity
-    ellipse(bird_x, bird_y,40,40)
+    ellipse(bird_x, bird_y,30,30)
     bird_y = bird_y + gravity
     if keyPressed and key == 'r' or key == 'R':
         bird_y = bird_y - gravity*5
