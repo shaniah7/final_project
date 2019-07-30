@@ -61,4 +61,3 @@ def bird_Movement():
 
     if Bird_Y < 0:
         y_speed = - y_speed
-"""   
