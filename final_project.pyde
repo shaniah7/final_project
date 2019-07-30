@@ -3,6 +3,10 @@ rect_y = random(300,800)
 x_speed = 3
 y_speed = 0
 
+bird_x = 150
+bird_y = 400
+gravity= 10
+bird_death = False
 def setup():
     size(700,800)
     background(0,105,148)
@@ -12,28 +16,6 @@ def setup():
     
     
     
-# def tube():
-#     # x_speed = 3
-#     # y_speed = 3
-
-
-#     bird_x = 0
-#     bird_y = 350
-    
-#     # rect_x = 50
-#     # rect_y = 500
-   
-#     fill(44, 176, 26)
-#     #bottom 
-#     rect(rect_x, rect_y, 50, 900)
-#     rect(rect_x-30, rect_y-40, 110, 50)
-#     rect_x = rect_x + x_speed
-#     rect_y = rect_y + y_speed
-#     #top
-#     rect(rect_x-30,rect_y-200,110,50)
-#     rect(rect_x, rect_y - 200, 50, -900)
-#     rect_x = rect_x + x_speed
-#     rect_y = rect_y + y_speed
 
 
 
@@ -56,11 +38,33 @@ def draw():
     tube()
 
     if rect_x <= -80:
-        rect_x =  800
+        rect_x =  1000
         rect_y =  random(300,600)
 
-    
+  
 
+    bird()
+    #if bird death = true:
+        
+    
+def bird():
+    global bird_x
+    global bird_y
+    global birdx_spd
+    global birdy_spd
+    global gravity
+    ellipse(bird_x, bird_y,40,40)
+    bird_y = bird_y + gravity
+    if keyPressed and key == 'r' or key == 'R':
+        bird_y = bird_y + 5
+    if bird_y >= 700:
+        bird_y = 700
+        bird_death = True
+        
+    
+    
+    
+    
     
     
 def tube():
@@ -70,17 +74,17 @@ def tube():
     global rect_y
     #xPos = rect_x + 50
     #yPos = rect_y + 50
-    x_speed = -5
+    x_speed = -10
     y_speed = 0
 
     fill(44, 176, 26)
     #bottom 
     rect(rect_x, rect_y, 50, 900)
-    rect(rect_x-30, rect_y-40, 110, 50)
+    rect(rect_x-30, rect_y-30, 110, 50)
     rect_x = rect_x + x_speed
     rect_y = rect_y + y_speed
     #top
-    rect(rect_x-30,rect_y-200,110,50)
+    rect(rect_x-28,rect_y-200,110,50)
     rect(rect_x, rect_y - 200, 50, -900)
     rect_x = rect_x + x_speed
     rect_y = rect_y + y_speed
