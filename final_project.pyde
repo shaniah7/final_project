@@ -1,5 +1,5 @@
 rect_x = 800
-rect_y = random(800)
+rect_y = random(300,800)
 x_speed = 3
 y_speed = 0
 
@@ -52,24 +52,27 @@ def draw():
     global x_speed
     global y_speed
     global tube
-    tube(random(800), random(800))
-    tube(400, 500)
+    #tube(random(800), random(300,600))
+    tube()
+
+    if rect_x <= -80:
+        rect_x =  800
+        rect_y =  random(300,600)
+
+    
+
     
     
-def tube(xPos, yPos):
+def tube():
     global x_speed
     global y_speed
     global rect_x
     global rect_y
-    xPos = rect_x + 50
-    yPos = rect_y - 75
-    x_speed = -3
+    #xPos = rect_x + 50
+    #yPos = rect_y + 50
+    x_speed = -5
     y_speed = 0
 
-    bird_x = 0
-    bird_y = 350
-    
-   
     fill(44, 176, 26)
     #bottom 
     rect(rect_x, rect_y, 50, 900)
