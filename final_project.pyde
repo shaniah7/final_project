@@ -6,7 +6,7 @@ rect2_y = random(200,600)
 
 rect3_x = 1400
 rect3_y = random(200,600)
-x_speed = 2
+x_speed = 3
 y_speed = 0
 
 bird_x = 150
