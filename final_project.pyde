@@ -1,5 +1,8 @@
 rect_x = 800
 rect_y = random(300,800)
+
+rect2_x = 1400
+rect2_y = random(300,800)
 x_speed = 3
 y_speed = 0
 
@@ -34,12 +37,20 @@ def draw():
     global x_speed
     global y_speed
     global tube
+    global rect2_x 
+    global rect2_y
     #tube(random(800), random(300,600))
     tube1()
+    tube2()
 
     if rect_x <= -80:
         rect_x =  1000
         rect_y =  random(300,600)
+      
+    if rect2_x <= -80:
+        rect2_x =  1000
+        rect2_y =  random(300,600)  
+    
 
   
 
@@ -88,4 +99,29 @@ def tube1():
     rect(rect_x, rect_y - 200, 50, -900)
     rect_x = rect_x + x_speed
     rect_y = rect_y + y_speed
+    
+    
+    
+def tube2():
+    global x_speed
+    global y_speed
+    global rect2_x 
+    global rect2_y
+    
+    #xPos = rect_x + 50
+    #yPos = rect_y + 50
+    x_speed = -10
+    y_speed = 0
+
+    fill(44, 176, 26)
+    #bottom 
+    rect(rect2_x  , rect2_y, 50, 900)
+    rect(rect2_x-30 , rect2_y-30, 110, 50)
+    rect2_x = rect2_x + x_speed
+    rect2_y = rect2_y + y_speed
+    #top
+    rect(rect2_x-28 ,rect2_y-200,110,50)
+    rect(rect2_x , rect2_y - 200, 50, -900)
+    rect2_x = rect2_x + x_speed
+    rect2_y = rect2_y + y_speed
   
