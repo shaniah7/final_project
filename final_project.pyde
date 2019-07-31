@@ -1,17 +1,20 @@
 rect_x = 800
 rect_y = random(300,800)
 
-rect2_x = 1400
-rect2_y = random(300,800)
+rect2_x = 1100
+rect2_y = random(300,600)
+
+rect3_x = 1400
+rect3_y = random(300,600)
 x_speed = 3
 y_speed = 0
 
 bird_x = 150
 bird_y = 400
-gravity= 10
+gravity= 20
 bird_death = False
 def setup():
-    size(700,800)
+    size(650,800)
     background(0,105,148)
     
     DAY_BACKGROUND = loadImage("Screen Shot 2019-07-29 at 10.30.48 AM.png")
@@ -39,19 +42,26 @@ def draw():
     global tube
     global rect2_x 
     global rect2_y
+    global rect3_x 
+    global rect3_y
     #tube(random(800), random(300,600))
     tube1()
     tube2()
+    tube3()
 
-    if rect_x <= -80:
-        rect_x =  1000
+    if rect_x <= -60:
+        rect_x =  900
         rect_y =  random(300,600)
       
-    if rect2_x <= -80:
-        rect2_x =  1000
+    if rect2_x <= -60:
+        rect2_x =  900
         rect2_y =  random(300,600)  
     
-
+       
+    if rect3_x <= -60:
+        rect3_x =  900
+        rect3_y =  random(300,600) 
+    
   
 
     bird()
@@ -67,7 +77,7 @@ def bird():
     ellipse(bird_x, bird_y,30,30)
     bird_y = bird_y + gravity
     if keyPressed and key == 'r' or key == 'R':
-        bird_y = bird_y - gravity*5
+        bird_y = bird_y - gravity*6
     if bird_y >= 700:
         bird_y = 700
         bird_death = True
@@ -124,4 +134,28 @@ def tube2():
     rect(rect2_x , rect2_y - 200, 50, -900)
     rect2_x = rect2_x + x_speed
     rect2_y = rect2_y + y_speed
+    
+    
+def tube3():
+    global x_speed
+    global y_speed
+    global rect3_x 
+    global rect3_y
+    
+    #xPos = rect_x + 50
+    #yPos = rect_y + 50
+    x_speed = -10
+    y_speed = 0
+
+    fill(44, 176, 26)
+    #bottom 
+    rect(rect3_x  , rect3_y, 50, 900)
+    rect(rect3_x-30 , rect3_y-30, 110, 50)
+    rect3_x = rect3_x + x_speed
+    rect3_y = rect3_y + y_speed
+    #top
+    rect(rect3_x-28 ,rect3_y-200,110,50)
+    rect(rect3_x , rect3_y - 200, 50, -900)
+    rect3_x = rect3_x + x_speed
+    rect3_y = rect3_y + y_speed
   
