@@ -1,63 +1,91 @@
-def setup():
-    size(700, 800)
-    background(79, 80, 150)
+rect_x = 800
+rect_y = random(300,800)
+x_speed = 3
+y_speed = 0
 
+bird_x = 150
+bird_y = 400
+gravity= 10
+bird_death = False
+def setup():
+    size(700,800)
+    background(0,105,148)
     
     DAY_BACKGROUND = loadImage("Screen Shot 2019-07-29 at 10.30.48 AM.png")
     image(DAY_BACKGROUND, 0,0, 700, 800)
     
-    Bird_Y = 200
-    y_speed = 5
+    
+    
 
 
 
-
-
-    """
+"""
     Bird = loadImage("Screen Shot 2019-07-29 at 11.19.16 AM.png")
 
     image(Bird, 350,0, 100, 100)
     
     """
-"""
-def bird_Movement():
-    y_speed = 5
-    Bird_Y = 200
-    ellipse(250, Bird_Y, 30, 30)
-    if Bird_Y > 850:
-        Bird_Y = bird_Y + y_speed
-    if Bird_Y < 650:
-        Bird_Y + y_speed
-
-    if Bird_Y < 0:
-        y_speed = - y_speed
-"""
-"""
-if mousePressed:  # if key 'A' is pressed 
-        Bird_Y = Bird_Y - 50
-else:
-    Bird_Y = Bird_Y + 50
-"""    
-    
 def draw():
-    global y_speed
-   # bird 1 movement
-
-    fill(65, 182, 230)
     DAY_BACKGROUND = loadImage("Screen Shot 2019-07-29 at 10.30.48 AM.png")
-    image(DAY_BACKGROUND,0,0, 700, 800)
-    bird_Movement() 
-
+    image(DAY_BACKGROUND, 0,0, 700, 800)
     
-"""            
-def bird_Movement():
-    y_speed = 5
-    Bird_Y = 200
-    ellipse(250, Bird_Y, 30, 30)
-    if Bird_Y > 850:
-        Bird_Y = bird_Y + y_speed
-    if Bird_Y < 650:
-        Bird_Y + y_speed
+    global rect_x
+    global rect_y
+    global x_speed
+    global y_speed
+    global tube
+    #tube(random(800), random(300,600))
+    tube1()
 
-    if Bird_Y < 0:
-        y_speed = - y_speed
+    if rect_x <= -80:
+        rect_x =  1000
+        rect_y =  random(300,600)
+
+  
+
+    bird()
+    #if bird death = true:
+        
+    
+def bird():
+    global bird_x
+    global bird_y
+    global birdx_spd
+    global birdy_spd
+    global gravity
+    ellipse(bird_x, bird_y,30,30)
+    bird_y = bird_y + gravity
+    if keyPressed and key == 'r' or key == 'R':
+        bird_y = bird_y - gravity*5
+    if bird_y >= 700:
+        bird_y = 700
+        bird_death = True
+        
+    
+    
+    
+    
+    
+    
+def tube1():
+    global x_speed
+    global y_speed
+    global rect_x
+    global rect_y
+    #xPos = rect_x + 50
+    #yPos = rect_y + 50
+    x_speed = -10
+    y_speed = 0
+
+    fill(44, 176, 26)
+    #bottom 
+    rect(rect_x, rect_y, 50, 900)
+    rect(rect_x-30, rect_y-30, 110, 50)
+    rect_x = rect_x + x_speed
+    rect_y = rect_y + y_speed
+    #top
+    rect(rect_x-28,rect_y-200,110,50)
+    rect(rect_x, rect_y - 200, 50, -900)
+    rect_x = rect_x + x_speed
+    rect_y = rect_y + y_speed
+  
