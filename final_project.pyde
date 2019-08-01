@@ -12,16 +12,14 @@ y_speed = 0
 bird_x = 150
 bird_y = 400
 gravity= 15
-bird_death = False
+Death = False
 def setup():
     size(700,800)
     background(0,105,148)
     
     DAY_BACKGROUND = loadImage("Screen Shot 2019-07-29 at 10.30.48 AM.png")
     image(DAY_BACKGROUND, 0,0, 700, 800)
-    
-    
-    
+
 
 
 
@@ -32,6 +30,9 @@ def setup():
     
     """
 def draw():
+
+    
+    
     DAY_BACKGROUND = loadImage("Screen Shot 2019-07-29 at 10.30.48 AM.png")
     image(DAY_BACKGROUND, 0,0, 700, 800)
     
@@ -63,7 +64,7 @@ def draw():
         rect3_y =  random(300,600) 
     
   
-
+#when the bird will hits the pipe the rect_X's will all stop and the bird will go to 0
     bird()
     #if bird death = true:
         
@@ -76,15 +77,30 @@ def bird():
     global gravity
     ellipse(bird_x, bird_y,30,30)
     bird_y = bird_y + gravity
-    if keyPressed and key == 'r' or key == 'R':
-        bird_y = bird_y - gravity*4.5
     if bird_y >= 700:
-        bird_y = 700
-        bird_death = True
+        bird_y = 700 
+        print("dead")
+    if keyPressed and key == 'r' or key == 'R':
+        bird_y = bird_y - gravity*3.6
+    # # if bird_y < rect_y and bird_x > rect_x and bird_x > 600:
+    #     print("dead")
+    #     x_speed = -13
+    
+    
+    # elif bird_y < rect_y - 30 and bird_x > rect_x - 30 and bird_x > 50:
+    #     print("dead")
+    #     x_speed = -13
+   
+     
+    # elif bird_y < rect_y - 250 and bird_x > rect_x - 20 and bird_x > 50:
+    #     print("dead")
+    
+    #     x_speed = -13
+    # elif bird_y < rect_y - 250 and bird_x > rect_x - 8 and bird_x > 600:
         
-    
-    
-    
+    #     print("dead")
+    #     x_speed = -13
+
     
     
     
